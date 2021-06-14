@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/portfolioFragment">
+
+    <fragment
+        android:id="@+id/portfolioFragment"
+        android:name="com.example.progetto.PortfolioFragment"
+        android:label="fragment_portfolio"
+        tools:layout="@layout/fragment_portfolio" >
+        <action
+            android:id="@+id/action_portfolioFragment_to_coin_display_fragment2"
+            app:destination="@id/coin_display_fragment" />
+        <action
+            android:id="@+id/action_portfolioFragment_to_addTransaction"
+            app:destination="@id/addTransaction" />
+        <action
+            android:id="@+id/action_portfolioFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/marketFragment"
+        android:name="com.example.progetto.MarketFragment"
+        android:label="fragment_market"
+        tools:layout="@layout/fragment_market" >
+        <action
+            android:id="@+id/action_marketFragment_to_coin_display_fragment2"
+            app:destination="@id/coin_display_fragment" />
+        <action
+            android:id="@+id/action_marketFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.progetto.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settingsFragment_to_connectionsDisplayFragment"
+            app:destination="@id/connectionsDisplayFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/coin_display_fragment"
+        android:name="com.example.progetto.coin_display_fragment"
+        android:label="fragment_coin_display_fragment"
+        tools:layout="@layout/fragment_coin_display_fragment" >
+        <argument
+            android:name="ticker"
+            app:argType="string"
+            android:defaultValue="btc" />
+        <action
+            android:id="@+id/action_coin_display_fragment_to_newTransactionFragment"
+            app:destination="@id/newTransactionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newTransactionFragment"
+        android:name="com.example.progetto.NewTransactionFragment"
+        android:label="fragment_new_transaction"
+        tools:layout="@layout/fragment_new_transaction" >
+        <action
+            android:id="@+id/action_newTransactionFragment_pop"
+            app:popUpTo="@id/newTransactionFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="buySellTicker"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="btc"/>
+        <argument
+            android:name="modifyId"
+            app:argType="long"
+            android:defaultValue="-1L" />
+    </fragment>
+    <fragment
+        android:id="@+id/addTransaction"
+        android:name="com.example.progetto.addTransaction"
+        android:label="fragment_add_transaction"
+        tools:layout="@layout/fragment_add_transaction" >
+        <action
+            android:id="@+id/action_addTransaction_to_chooseExchangeFragment"
+            app:destination="@id/chooseExchangeFragment" />
+        <action
+            android:id="@+id/action_addTransaction_to_chooseWalletFragment"
+            app:destination="@id/chooseWalletFragment" />
+        <action
+            android:id="@+id/action_addTransaction_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseExchangeFragment"
+        android:name="com.example.progetto.chooseExchangeFragment"
+        android:label="fragment_choose_exchange"
+        tools:layout="@layout/fragment_choose_exchange" >
+        <action
+            android:id="@+id/action_chooseExchangeFragment_to_addExchangeFragment"
+            app:destination="@id/addExchangeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseWalletFragment"
+        android:name="com.example.progetto.chooseWalletFragment"
+        android:label="fragment_choose_wallet"
+        tools:layout="@layout/fragment_choose_wallet" >
+        <action
+            android:id="@+id/action_chooseWalletFragment_to_addWalletFragment"
+            app:destination="@id/addWalletFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addWalletFragment"
+        android:name="com.example.progetto.addWalletFragment"
+        android:label="fragment_add_wallet"
+        tools:layout="@layout/fragment_add_wallet" >
+        <action
+            android:id="@+id/action_addWalletFragment_to_portfolioFragment"
+            app:destination="@id/portfolioFragment" />
+        <argument
+            android:name="coin"
+            app:argType="string" />
+        <argument
+            android:name="modifyId"
+            app:argType="long"
+            android:defaultValue="-1L" />
+        <argument
+            android:name="address"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_addWalletFragment_pop"
+            app:popUpTo="@id/settingsFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/addExchangeFragment"
+        android:name="com.example.progetto.addExchangeFragment"
+        android:label="fragment_add_exchange"
+        tools:layout="@layout/fragment_add_exchange" >
+        <action
+            android:id="@+id/action_addExchangeFragment_to_portfolioFragment"
+            app:destination="@id/portfolioFragment" />
+        <argument
+            android:name="exchange"
+            app:argType="string" />
+        <argument
+            android:name="modifyId"
+            app:argType="long"
+            android:defaultValue="-1L" />
+        <action
+            android:id="@+id/action_addExchangeFragment_pop"
+            app:popUpTo="@id/settingsFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/connectionsDisplayFragment"
+        android:name="com.example.progetto.ConnectionsDisplayFragment"
+        android:label="ConnectionsDisplayFragment" >
+        <action
+            android:id="@+id/action_connectionsDisplayFragment_to_addWalletFragment"
+            app:destination="@id/addWalletFragment" />
+        <action
+            android:id="@+id/action_connectionsDisplayFragment_to_addExchangeFragment"
+            app:destination="@id/addExchangeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.progetto.SearchFragment"
+        android:label="SearchFragment" >
+        <action
+            android:id="@+id/action_searchFragment_to_coin_display_fragment"
+            app:destination="@id/coin_display_fragment" />
+    </fragment>
+</navigation>

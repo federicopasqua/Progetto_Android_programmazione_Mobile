@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">CryptoTracker</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="currency">€%1$s</string>
+    <string name="percentage">%1$s\%</string>
+    <string name="coinName">%1$s. %2$s</string>
+    <string name="Market">Market</string>
+    <string name="searchButtonDescription">Button to search for coins</string>
+    <string name="Portfolio">Portfolio</string>
+    <string name="timeframe1h">1H</string>
+    <string name="timeframe24h">24H</string>
+    <string name="timeframe7d">7D</string>
+    <string name="placeholderBalance">0 €</string>
+    <string name="placeholderPercentage">0%</string>
+    <string name="addTransactionsFABDescription">Button to add new transactions</string>
+    <string name="detailsButton">DETAILS</string>
+    <string name="transactionsButton">TRANSACTIONS</string>
+    <string name="buy">Buy</string>
+    <string name="sell">Sell</string>
+    <string name="amount">Amount</string>
+    <string name="newTransaction">New Transaction</string>
+    <string name="editTransaction">Edit Transaction</string>
+    <string name="transactionType">Transaction Type</string>
+    <string name="exchangeOf">In Exchange Of</string>
+    <string name="price">Price</string>
+    <string name="commission">Commission</string>
+    <string name="ticker">Ticker</string>
+    <string name="add">ADD</string>
+    <string name="edit">EDIT</string>
+    <string name="addTransaction">Add Transaction</string>
+    <string name="newManualTransactionButton">ADD MANUAL TRANSACTION</string>
+    <string name="newExchangeButton">ADD EXCHANGE</string>
+    <string name="newWalletButton">ADD WALLET</string>
+    <string name="bitcoin">BITCOIN</string>
+    <string name="ark">ARK</string>
+    <string name="binance">BINANCE</string>
+    <string name="newExchange">Add Exchange</string>
+    <string name="newWallet">Add Wallet</string>
+    <string name="address">Address</string>
+    <string name="delete">DELETE</string>
+    <string name="key">Key</string>
+    <string name="privateKey">Private Key</string>
+    <string name="connections">Connections</string>
+    <string name="noConnections">No connections</string>
+    <string name="settings">Settings</string>
+    <string name="exchangeinserito">Exchange già inserito.</string>
+    <string name="walletinserito">Wallet già inserito.</string>
+    <string name="indirizzoNonValido">L\'indirizzo non è valido.</string>
+    <string name="rank">Rank</string>
+    <string name="marketCap">Market Cap</string>
+    <string name="volume">Volume</string>
+    <string name="supply">Supply</string>
+    <string name="high">High (24h)</string>
+    <string name="low">Low (24h)</string>
+
+
+    <string-array name="transactions_types">
+        <item>Buy</item>
+        <item>Sell</item>
+        <item>Transfer out</item>
+        <item>Transfer in</item>
+        <item>Mining</item>
+        <item>Staking</item>
+    </string-array>
+    <string name="euro"> €</string>
+
+</resources>

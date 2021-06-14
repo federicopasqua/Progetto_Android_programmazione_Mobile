@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".coin_display_fragment">
+    <data>
+        <variable
+            name="CoinDisplayViewModel"
+            type="com.example.progetto.models.CoinDisplayViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/showTransactions"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/display_details"
+            tools:listitem="@layout/transactions_details" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/coinImageDetails"
+            android:layout_width="43dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="2dp"
+            app:layout_constraintEnd_toStartOf="@+id/displayNameDetails"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/displayNameDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@{CoinDisplayViewModel.coin.name}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/displayValueDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text=''
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/displayBalanceDetails"
+            app:layout_constraintTop_toBottomOf="@+id/coinImageDetails" />
+
+        <TextView
+            android:id="@+id/displayBalanceDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text=''
+            app:layout_constraintEnd_toStartOf="@+id/displayValueDetails"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/coinImageDetails" />
+
+        <Button
+            android:id="@+id/display_details"
+            android:layout_width="152dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="28dp"
+            android:enabled="false"
+            android:text="@string/detailsButton"
+            app:layout_constraintEnd_toStartOf="@+id/display_transactions"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/displayBalanceDetails" />
+
+        <Button
+            android:id="@+id/display_transactions"
+            android:layout_width="152dp"
+            android:layout_height="0dp"
+            android:text="@string/transactionsButton"
+            app:layout_constraintBottom_toBottomOf="@+id/display_details"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/display_details"
+            app:layout_constraintTop_toTopOf="@+id/display_details" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginBottom="28dp"
+            android:clickable="true"
+            android:contentDescription="@string/addTransactionsFABDescription"
+            android:focusable="true"
+            android:src="@drawable/ic_add"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/showCoinDetails"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/display_details">
+
+            <TextView
+                android:id="@+id/priceDisplay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                android:layout_marginLeft="44dp"
+                android:layout_marginTop="48dp"
+                android:text="€ 0"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/percentageDisplay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:layout_marginEnd="44dp"
+                android:layout_marginRight="44dp"
+                android:text="0 %"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/rankDisplayLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rank"
+                app:layout_constraintBottom_toTopOf="@+id/rankDisplay"
+                app:layout_constraintStart_toStartOf="@+id/rankDisplay" />
+
+            <TextView
+                android:id="@+id/rankDisplay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="64dp"
+                android:text="999"
+                android:textSize="18dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/priceDisplay" />
+
+            <TextView
+                android:id="@+id/marketcapDisplayLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="70dp"
+                android:layout_marginRight="70dp"
+                android:text="@string/marketCap"
+                app:layout_constraintBottom_toTopOf="@+id/marketcapDisplay"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/marketcapDisplay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="72dp"
+                android:text="0"
+                android:textSize="18dp"
+                app:layout_constraintStart_toStartOf="@+id/marketcapDisplayLabel"
+                app:layout_constraintTop_toBottomOf="@+id/percentageDisplay" />
+
+            <TextView
+                android:id="@+id/volumeDisplayLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/volume"
+                app:layout_constraintBottom_toTopOf="@+id/volumeDisplay"
+                app:layout_constraintStart_toStartOf="@+id/volumeDisplay" />
+
+            <TextView
+                android:id="@+id/volumeDisplay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="72dp"
+                android:text="TextView"
+                android:textSize="18dp"
+                app:layout_constraintStart_toStartOf="@+id/rankDisplay"
+                app:layout_constraintTop_toBottomOf="@+id/rankDisplay" />
+
+            <TextView
+                android:id="@+id/highDisplayLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/high"
+                app:layout_constraintBottom_toTopOf="@+id/highDisplay"
+                app:layout_constraintStart_toStartOf="@+id/highDisplay" />
+
+            <TextView
+                android:id="@+id/highDisplay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="72dp"
+                android:text="TextView"
+                android:textSize="18dp"
+                app:layout_constraintStart_toStartOf="@+id/volumeDisplay"
+                app:layout_constraintTop_toBottomOf="@+id/volumeDisplay" />
+
+            <TextView
+                android:id="@+id/supplyDisplayLable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/supply"
+                app:layout_constraintBottom_toTopOf="@+id/supplyDisplay"
+                app:layout_constraintStart_toStartOf="@+id/supplyDisplay" />
+
+            <TextView
+                android:id="@+id/supplyDisplay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="72dp"
+                android:text="0"
+                android:textSize="18dp"
+                app:layout_constraintStart_toStartOf="@+id/marketcapDisplay"
+                app:layout_constraintTop_toBottomOf="@+id/marketcapDisplay" />
+
+            <TextView
+                android:id="@+id/lowDisplayLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/low"
+                app:layout_constraintBottom_toTopOf="@+id/lowDisplay"
+                app:layout_constraintStart_toStartOf="@+id/lowDisplay" />
+
+            <TextView
+                android:id="@+id/lowDisplay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="72dp"
+                android:text="0"
+                android:textSize="18dp"
+                app:layout_constraintStart_toStartOf="@+id/supplyDisplay"
+                app:layout_constraintTop_toBottomOf="@+id/supplyDisplay" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -73,7 +73,12 @@ class PortfolioFragment : Fragment() {
                 "24h" -> timeframe24h
                 else -> timeframe7d
             }
-            binding.gains.text = pf.format(displayPercentage).plus("%")
+            if (!displayPercentage.isNaN()){
+                binding.gains.text = pf.format(displayPercentage).plus("%")
+            }else{
+                binding.gains.text = "0%"
+
+            }
             if (displayPercentage > 0){
                 binding.gains.setTextColor(Color.GREEN)
             }else if (displayPercentage < 0){
